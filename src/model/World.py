@@ -1,4 +1,5 @@
 import codecs
+import random
 from operator import index
 from typing import Optional, Any
 
@@ -95,6 +96,13 @@ class World:
                 return country
 
         return None
+
+    def get_random_country(self):
+        country = self.country_from_name("Holy See")
+        while len(country.cities) <= 1:
+            country = random.choice(list(self.countries.values()))
+        print("Random country: " + country.name)
+        return country
 
 
 
